@@ -24,7 +24,7 @@ function loadTasksInDOM() {
     tdId.className = 'list-head-item';
     tdName.innerText = task.name;
     tdName.className = 'list-head-item';
-    tdCompleted.innerText = task.completed;
+    tdCompleted.innerText = task.completed ? "completada" : "sin completar";
     tdCompleted.className = 'list-head-item';
 
     tr.appendChild(tdId);
