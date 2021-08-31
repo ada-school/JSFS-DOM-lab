@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head lang="es">
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Lista de Tareas</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='./styles.css'>
+  </head>
+  <body>
+    <script src='./script.js'></script>
+    <main class="content">
+      <h1 class="main-title">Mi lista de tareas</h1>
+      <div class="container">
+        <div class="actions-container">
+          <section class="action-section">
+            <h2>Nueva tarea</h2>
+            <form class="action-form" id="create-task-form">
+              <label for="new-task-id" class="form-label">id:
+                <input type="number" id="new-task-id" name="new-task-id">
+              </label>
+              <label for="new-task-name" class="form-label">Nombre:
+                <input type="text" id="new-task-name" name="new-task-name">
+              </label>
+              <button type="submit" class="form-button">Crear</button>
+            </form>
+          </section>      
+          <section class="action-section">
+            <h2>Completar tarea</h2>
+          </section>
+          <section class="action-section">
+            <h2>Eliminar tarea</h2>
+          </section>
+        </div>
+        <section class="list-container">
+          <h2>Lista de tareas</h2>
+          <table class="task-list">
+            <thead class="list-head">
+              <tr class="list-row">
+                <th class="list-head-item">Id</th>
+                <th class="list-head-item">Nombre</th>
+                <th class="list-head-item">Estado</th>
+              </tr>
+            </thead>
+            <tbody id="list-body">
+            </tbody>
+          </table>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
