@@ -7,6 +7,8 @@ const TASK_LIST = [
 document.body.onload = init;
 
 function init() {
+  const form = document.getElementById("create-task-form");
+  form.addEventListener("submit", addTask);
   loadTasksInDOM();
 }
 
@@ -35,8 +37,37 @@ function loadTasksInDOM() {
   });
 }
 
-function addTask(event) {}
+function addTask(event) {
+  event.preventDefault();
+  const newId = document.getElementById("new-task-id");
+  const newName = document.getElementById("new-task-name");
+  let isCreated = false;
+  TASK_LIST.forEach( task => {
+    if (task.id === newId.value) {
+      isCreated = true;
+    }
+  });
+  if (isCreated) {
+    alert("Id repetido.");
+    return null;
+  }
+  const newTask = {
+    id: newId.value,
+    name: newName.value,
+    completed: false
+  };
+  TASK_LIST.push(newTask);
+  removeDOMTasks();
+  loadTasksInDOM();
+}
+
 function deleteTask(event) {}
 function completeTask(event) {}
 
-function removeDOMTasks() {}
+function removeDOMTasks() {
+  const listBody = document.getElementById("list-body");
+
+  while (listBody.lastChild) {
+    listBody.removeChild(listBody.lastChild);
+  }
+}
